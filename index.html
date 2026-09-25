@@ -34,8 +34,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:
   background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
 
 /* NAV */
-.navbar{position:fixed;top:0;left:0;width:100%;z-index:50;background:linear-gradient(90deg,#ffffff 0%,#94a3b8 38%,#1e293b 68%,#05070c 100%);border-bottom:1px solid rgba(203,213,225,.14);backdrop-filter:blur(16px)}
-.nav-inner{height:110px;display:flex;align-items:center;justify-content:space-between;overflow:visible}
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:50;background:linear-gradient(90deg,#ffffff 0%,#94a3b8 38%,#1e293b 68%,#05070c 100%);border-bottom:1px solid rgba(203,213,225,.14);backdrop-filter:blur(16px);transition:transform .35s ease}
+.navbar.hide{transform:translateY(-100%)}
+.nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between;overflow:visible}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-mark{width:44px;height:44px;border-radius:0;background:none;display:flex;align-items:center;justify-content:center;box-shadow:none;overflow:visible}
 .logo-mark img{width:44px;height:44px;object-fit:contain;display:block}
@@ -50,7 +51,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:
 .menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;font-size:20px;cursor:pointer}
 
 /* HERO */
-.hero{min-height:100vh;padding:165px 0 80px;display:flex;align-items:center}
+.hero{min-height:100vh;padding:145px 0 80px;display:flex;align-items:center}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
 .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.22);color:#bfdbfe;font-size:12px;font-weight:600;margin-bottom:22px}
 .badge b{width:6px;height:6px;border-radius:50%;background:var(--blue)}
@@ -165,7 +166,7 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
   .nav-links a{padding:12px}
   .menu-btn{display:block}
   .hero-grid{grid-template-columns:1fr;gap:40px}
-  .hero{padding-top:145px}
+  .hero{padding-top:125px}
   .areas{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
@@ -420,6 +421,15 @@ menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
 document.querySelectorAll(".nav-links a").forEach(l=>l.addEventListener("click",()=>navLinks.classList.remove("open")));
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("active")})},{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const navbar=document.querySelector(".navbar");
+let lastY=window.scrollY;
+window.addEventListener("scroll",()=>{
+  const y=window.scrollY;
+  if(y>lastY && y>120){navbar.classList.add("hide")}
+  else{navbar.classList.remove("hide")}
+  lastY=y;
+});
 </script>
 </body>
 </html>
