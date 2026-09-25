@@ -1,81 +1,425 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricardo | Webmaster en Construcción 🚀</title>
-    <meta name="description" content="Aprende a crear páginas web desde cero conmigo. Guías paso a paso, consejos y trucos para empezar sin experiencia.">
-    
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',Roboto,sans-serif;background:linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);background-size:400% 400%;animation:fondo 15s ease infinite;min-height:100vh;color:#fff;padding:2rem 1rem}
-        @keyframes fondo{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-        .contenedor{max-width:900px;margin:0 auto}
-        header{text-align:center;padding:2rem 1rem;animation:aparecer 1s ease-out}
-        @keyframes aparecer{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-        h1{font-size:2.2rem;margin-bottom:.5rem}
-        .subtitulo{font-size:1.2rem;opacity:.9;margin-bottom:2rem}
-        .tarjeta{background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border-radius:20px;padding:2rem;margin-bottom:2rem;border:1px solid rgba(255,255,255,.2);transition:transform .3s ease}
-        .tarjeta:hover{transform:translateY(-5px)}
-        h2{font-size:1.4rem;margin-bottom:1rem}
-        p{font-size:1.05rem;line-height:1.8;margin-bottom:1rem}
-        .articulo{background:rgba(255,255,255,.2);border-left:4px solid #FFD700;padding:1.2rem;border-radius:0 12px 12px 0;margin:1rem 0}
-        footer{text-align:center;margin-top:3rem;opacity:.8}
-        @media(max-width:600px){h1{font-size:1.6rem}.tarjeta{padding:1.5rem}}
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3521081328352459"
-     crossorigin="anonymous"></script>
-</head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Picharli | IA, Desarrollo Web, Bolsa y Trading</title>
+<meta name="description" content="Picharli. Aprende inteligencia artificial, creación de páginas web, inversión en bolsa y trading con estrategia real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#05070c;
+  --panel:#0d1420;
+  --line:rgba(226,232,240,.10);
+  --blue:#3b82f6;
+  --blue-deep:#1d4ed8;
+  --silver:#cbd5e1;
+  --text:#f1f5f9;
+  --muted:#8b96a8;
+}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+.container{width:min(1160px,92%);margin:auto}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(circle at 12% 8%,rgba(59,130,246,.12),transparent 32%),
+  radial-gradient(circle at 88% 30%,rgba(203,213,225,.05),transparent 30%),
+  linear-gradient(180deg,#05070c 0%,#080d16 55%,#05070c 100%);}
+.grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(148,163,184,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.05) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+
+/* NAV */
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:50;background:linear-gradient(90deg,#ffffff 0%,#94a3b8 38%,#1e293b 68%,#05070c 100%);border-bottom:1px solid rgba(203,213,225,.14);backdrop-filter:blur(16px)}
+.nav-inner{height:110px;display:flex;align-items:center;justify-content:space-between;overflow:visible}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:44px;height:44px;border-radius:0;background:none;display:flex;align-items:center;justify-content:center;box-shadow:none;overflow:visible}
+.logo-mark img{width:44px;height:44px;object-fit:contain;display:block}
+.logo span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.3px}
+.nav-inner .logo{margin-left:-22px}
+.nav-inner .logo-mark{width:104px;height:104px;overflow:visible}
+.nav-inner .logo-mark img{width:104px;height:104px}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--silver)}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:10px 18px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue-deep));font-weight:600;font-size:14px;color:#fff!important;box-shadow:0 8px 22px rgba(37,99,235,.28)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;font-size:20px;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;padding:165px 0 80px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.22);color:#bfdbfe;font-size:12px;font-weight:600;margin-bottom:22px}
+.badge b{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+h1{font-size:clamp(38px,5vw,60px);line-height:1.05;letter-spacing:-1.5px;font-weight:700;margin-bottom:22px}
+h1 em{font-style:normal;color:var(--blue);display:block}
+.hero p.lead{color:var(--muted);font-size:17px;line-height:1.7;max-width:520px;margin-bottom:30px}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;border-radius:12px;font-size:14px;font-weight:600}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.28)}
+.btn-secondary{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text)}
+
+/* HERO CARD */
+.card{background:linear-gradient(150deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:22px;box-shadow:0 26px 70px rgba(0,0,0,.45)}
+.dash{padding:24px}
+.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.dash-top small{color:var(--muted);font-size:11px;letter-spacing:.3px}
+.dash-top .val{font-size:26px;font-weight:700;margin-top:4px}
+.pill-live{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#93c5fd}
+.pill-live i{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.bars{display:flex;align-items:flex-end;gap:6px;height:120px;margin-bottom:20px}
+.bars div{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--blue),rgba(59,130,246,.2))}
+.dash-tags{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dash-tags div{padding:10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:11px}
+.dash-tags strong{display:block;font-size:12px;margin-top:3px;color:var(--text)}
+.dash-tags small{color:var(--muted)}
+.float{position:absolute;padding:14px 16px;border-radius:14px;background:rgba(13,20,32,.92);border:1px solid var(--line);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.float small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}
+.float strong{font-size:14px}
+.hero-visual{position:relative}
+.f1{top:-16px;right:-14px}
+.f2{bottom:-14px;left:-18px}
+
+/* TRUST */
+.trust{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.012)}
+.trust-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+.trust-row span{color:var(--muted);font-size:12px;font-weight:600}
+
+/* SECTIONS */
+.section{padding:100px 0}
+.head{max-width:640px;margin-bottom:52px}
+.eyebrow{color:#93c5fd;font-size:13px;font-weight:600;margin-bottom:12px;display:block}
+.head h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-1px;line-height:1.1;margin-bottom:14px}
+.head p{color:var(--muted);font-size:15px;line-height:1.7}
+
+/* AREAS */
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.area{padding:26px;border-radius:18px;background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line)}
+.area .ic{width:44px;height:44px;border-radius:12px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:20px}
+.area h3{font-size:17px;margin-bottom:8px}
+.area p{color:var(--muted);font-size:13px;line-height:1.6}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{padding:26px 0 0;border-top:1px solid var(--line)}
+.step small{color:#93c5fd;font-size:12px;font-weight:600;letter-spacing:.3px}
+.step h3{font-size:19px;margin:14px 0 8px}
+.step p{color:var(--muted);font-size:13.5px;line-height:1.6}
+
+/* SPLIT (about) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.split-panel{padding:22px;border-radius:20px}
+.split-panel .bars{height:90px}
+.split ul{margin-top:14px;list-style:none}
+.split ul li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--silver);font-size:14px;display:flex;gap:10px}
+.split ul li i{width:5px;height:5px;border-radius:50%;background:var(--blue);margin-top:8px;flex-shrink:0}
+
+/* PROGRESS BANNER */
+.progress-box{padding:44px;border-radius:26px;background:radial-gradient(circle at 50% 0%,rgba(59,130,246,.18),transparent 55%),linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.progress-box h3{font-size:20px;margin-bottom:6px}
+.progress-box p{color:var(--muted);font-size:13.5px}
+.bar-track{height:8px;border-radius:99px;background:rgba(255,255,255,.06);margin:16px 0 10px;overflow:hidden}
+.bar-fill{height:100%;width:35%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--silver))}
+.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+
+/* ROADMAP */
+.roadmap{border-left:1px solid var(--line);padding-left:26px;display:flex;flex-direction:column;gap:36px}
+.rm-item{position:relative}
+.rm-item::before{content:"";position:absolute;left:-31px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(59,130,246,.15)}
+.rm-item small{color:#93c5fd;font-size:12px;font-weight:600}
+.rm-item h3{font-size:18px;margin:8px 0 6px}
+.rm-item p{color:var(--muted);font-size:13.5px;line-height:1.6;max-width:560px}
+
+/* CTA */
+.cta-box{padding:70px 50px;border-radius:28px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(59,130,246,.2),transparent 55%),linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line)}
+.cta-box h2{font-size:clamp(28px,4vw,42px);letter-spacing:-1px;margin-bottom:14px}
+.cta-box p{color:var(--muted);max-width:520px;margin:0 auto 26px;line-height:1.7}
+.socials{display:flex;justify-content:center;gap:12px;margin-top:26px}
+.social{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--silver)}
+.social:hover{border-color:rgba(59,130,246,.35);color:#fff}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;z-index:80;box-shadow:0 12px 30px rgba(37,211,102,.3)}
+
+/* FOOTER */
+footer{padding:50px 0 26px;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px}
+.footer-brand p{color:var(--muted);font-size:13px;line-height:1.8;margin-top:14px;max-width:320px}
+.footer-col h4{font-size:13px;margin-bottom:16px;color:var(--text)}
+.footer-col a{display:block;color:var(--muted);font-size:13px;margin-bottom:10px}
+.footer-col a:hover{color:#93c5fd}
+.footer-bottom{padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-bottom p{color:#475569;font-size:11px}
+.disclaimer{max-width:560px;color:#475569!important;line-height:1.6}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .nav-links{position:absolute;top:80px;left:4%;width:92%;padding:18px;display:none;flex-direction:column;gap:8px;background:rgba(5,7,12,.97);border:1px solid var(--line);border-radius:16px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px}
+  .menu-btn{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero{padding-top:145px}
+  .areas{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .progress-box{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .areas{grid-template-columns:1fr}
+  .cta-box{padding:46px 22px}
+  .footer-grid{grid-template-columns:1fr}
+  h1{font-size:38px}
+}
+</style>
+</head>
 <body>
-<div class="contenedor">
-    <header>
-        <h1>👨‍💻 Ricardo — Tu guía en el mundo web</h1>
-        <p class="subtitulo">Aprende a crear sitios desde cero y descubre cómo convertir tu conocimiento en oportunidades 💻💰</p>
-    </header>
+<div class="grid-bg"></div>
 
-    <div class="tarjeta">
-        <h2>📌 Sobre mí</h2>
-        <p>Hola 👋 Soy Ricardo. Estoy construyendo mi futuro digital paso a paso. Aquí comparto todo lo que aprendo para que tú también logres tus metas, sin importar si estás empezando desde cero.</p>
-        <p><strong>Mi meta:</strong> Dominar el desarrollo web, compartir conocimientos y demostrar que con constancia se puede crecer profesionalmente 💪</p>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#inicio" class="logo">
+      <span class="logo-mark"><img src="https://i.imgur.com/hu1FC7U.png" alt="Picharli"></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#areas">Áreas</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#ruta">Ruta de contenido</a>
+      <a class="nav-cta" href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank">Hablar por WhatsApp</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="badge"><b></b>IA · WEB · BOLSA · TRADING</div>
+      <h1>Aprende a construir con datos, código<em>y estrategia.</em></h1>
+      <p class="lead">Contenido claro sobre inteligencia artificial, creación de páginas web e inversión en bolsa. Sin promesas vacías: solo criterio propio y decisiones informadas.</p>
+      <div class="btn-row">
+        <a href="#areas" class="btn btn-primary">Ver el contenido →</a>
+        <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" class="btn btn-secondary">Hablar con nosotros</a>
+      </div>
     </div>
-
-    <div class="tarjeta">
-        <h2>📚 Cómo crear tu primera página web sin gastar nada</h2>
-        <p>¿Quieres empezar pero crees que necesitas dinero o equipos costosos? La buena noticia es que NO es necesario. Con herramientas gratuitas y constancia puedes tener tu sitio en internet hoy mismo.</p>
-        
-        <div class="articulo">
-            <strong>1. Lo básico: HTML</strong>
-            <p>Es el lenguaje de marcado que da estructura a todo sitio. No necesitas memorizar todo: empieza con encabezados, párrafos y enlaces. Practicar un poco cada día es la clave.</p>
+    <div class="hero-visual reveal">
+      <div class="card dash">
+        <div class="dash-top">
+          <div><small>PROGRESO DE APRENDIZAJE</small><div class="val">+68%</div></div>
+          <div class="pill-live"><i></i>EN VIVO</div>
         </div>
-        
-        <div class="articulo">
-            <strong>2. Dale vida con CSS</strong>
-            <p>Colores, tipos de letra, espaciados... todo lo que hace que una página se vea atractiva depende de CSS. Empieza cambiando colores y pronto querrás agregar animaciones y diseños propios.</p>
+        <div class="bars">
+          <div style="height:40%"></div><div style="height:65%"></div><div style="height:50%"></div>
+          <div style="height:80%"></div><div style="height:60%"></div><div style="height:95%"></div>
+          <div style="height:70%"></div><div style="height:100%"></div>
         </div>
-        
-        <div class="articulo">
-            <strong>3. Sube tu sitio gratis</strong>
-            <p>Plataformas como GitHub Pages te permiten publicar tu trabajo sin pagar. Solo necesitas aprender a organizar tus archivos y subirlos. ¡Como hice yo mismo hace poco!</p>
+        <div class="dash-tags">
+          <div><small>MÓDULO</small><strong>IA aplicada</strong></div>
+          <div><small>MÓDULO</small><strong>Acciones EEUU</strong></div>
+          <div><small>MÓDULO</small><strong>Desarrollo web</strong></div>
         </div>
+      </div>
+      <div class="float f1"><small>ENFOQUE</small><strong>Análisis, no suerte</strong></div>
+      <div class="float f2"><small>META</small><strong>Criterio financiero propio</strong></div>
     </div>
+  </div>
+</section>
 
-    <div class="tarjeta">
-        <h2>💡 La constancia lo es todo</h2>
-        <p>Nadie nace sabiendo programar. Cada error es en realidad una lección que te acerca más a la solución. Lo importante no es saberlo todo desde el primer día, sino no rendirse cuando algo sale mal.</p>
-        <p>Empieza hoy, aunque sea con algo pequeño. Con el tiempo verás cómo tu trabajo crece y abre puertas que no imaginabas ✨</p>
+<section class="trust">
+  <div class="container trust-row">
+    <span>Inteligencia Artificial</span>
+    <span>Desarrollo Web</span>
+    <span>Bolsa de Valores</span>
+    <span>Acciones en EE.UU.</span>
+    <span>Trading</span>
+  </div>
+</section>
+
+<section class="section" id="areas">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">Qué vas a aprender</span>
+      <h2>Cuatro áreas, una sola forma de pensar.</h2>
+      <p>Cada tema se enseña con ejemplos reales, para que entiendas el porqué antes de aplicar cualquier técnica.</p>
     </div>
-
-    <div class="tarjeta">
-        <h2>🔜 Próximamente</h2>
-        <p>Estoy preparando contenido sobre posicionamiento en buscadores (SEO), cómo ganar visibilidad en internet y formas de monetizar tu trabajo de manera honesta y sostenible.</p>
-        <p>¡Vuelve pronto para seguir aprendiendo juntos! 🚀</p>
+    <div class="areas">
+      <div class="area reveal">
+        <div class="ic">◈</div>
+        <h3>Inteligencia Artificial</h3>
+        <p>Usa la IA como herramienta de trabajo diario: automatizar tareas, analizar información y tomar mejores decisiones.</p>
+      </div>
+      <div class="area reveal">
+        <div class="ic">◇</div>
+        <h3>Desarrollo Web</h3>
+        <p>Crea páginas y proyectos digitales propios, entendiendo la estructura detrás de cada sitio que visitas.</p>
+      </div>
+      <div class="area reveal">
+        <div class="ic">◆</div>
+        <h3>Bolsa y Acciones</h3>
+        <p>Aprende a comprar acciones en Estados Unidos: qué mirar en una empresa antes de invertir tu dinero.</p>
+      </div>
+      <div class="area reveal">
+        <div class="ic">↗</div>
+        <h3>Trading</h3>
+        <p>Entiende el análisis técnico y la gestión de riesgo antes de operar en cualquier mercado.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <footer>
-        © 2026 Ricardo — Construyendo y compartiendo conocimiento<br>
-        <small>Desde Santo Domingo de los Tsáchilas, Ecuador 🇪🇨</small>
-    </footer>
-</div>
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Tres pasos para empezar.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <small>PASO 1</small>
+        <h3>Aprende los fundamentos</h3>
+        <p>Contenido explicado en lenguaje simple, sin tecnicismos innecesarios ni relleno.</p>
+      </div>
+      <div class="step reveal">
+        <small>PASO 2</small>
+        <h3>Analiza con datos</h3>
+        <p>Practica con casos reales de mercado, código y herramientas de IA.</p>
+      </div>
+      <div class="step reveal">
+        <small>PASO 3</small>
+        <h3>Aplica con criterio</h3>
+        <p>Toma tus propias decisiones, con base y sin depender de la suerte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="card split-panel reveal">
+      <div class="bars"><div style="height:55%"></div><div style="height:30%"></div><div style="height:75%"></div><div style="height:45%"></div><div style="height:90%"></div><div style="height:60%"></div></div>
+      <ul>
+        <li><i></i>Explicaciones paso a paso, sin relleno</li>
+        <li><i></i>Casos reales de bolsa y trading</li>
+        <li><i></i>Proyectos prácticos de IA y web</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Sobre el contenido</span>
+      <h2>Un espacio que crece contigo.</h2>
+      <p style="color:var(--muted);font-size:15px;line-height:1.8;margin-top:14px">Este es un proyecto en construcción: cada semana se suma contenido nuevo sobre IA, desarrollo web, bolsa y trading, siempre con la misma estructura clara para que sea fácil de seguir.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="progress-box reveal">
+      <div>
+        <h3>Contenido en construcción</h3>
+        <p>Vamos publicando módulos de forma progresiva.</p>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+        <div class="progress-labels"><span>Fase actual</span><span>Fundamentos de IA y Bolsa</span></div>
+      </div>
+      <div style="text-align:right">
+        <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" class="btn btn-primary">Escríbenos y entérate primero →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ruta">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">Hoja de ruta</span>
+      <h2>Así vamos a ir sumando contenido.</h2>
+    </div>
+    <div class="roadmap">
+      <div class="rm-item reveal">
+        <small>FASE 1</small>
+        <h3>Fundamentos de Inteligencia Artificial</h3>
+        <p>Herramientas de IA aplicadas al trabajo diario y a la toma de decisiones.</p>
+      </div>
+      <div class="rm-item reveal">
+        <small>FASE 2</small>
+        <h3>Desarrollo web desde cero</h3>
+        <p>Estructura, diseño y publicación de páginas propias.</p>
+      </div>
+      <div class="rm-item reveal">
+        <small>FASE 3</small>
+        <h3>Bolsa de valores y acciones en EE.UU.</h3>
+        <p>Cómo abrir una cuenta, analizar una empresa y comprar tus primeras acciones.</p>
+      </div>
+      <div class="rm-item reveal">
+        <small>FASE 4</small>
+        <h3>Trading y análisis técnico</h3>
+        <p>Lectura de gráficos, gestión de riesgo y disciplina operativa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2>Empieza a construir tu propio criterio.</h2>
+      <p>Síguenos y aprende con nosotros una forma distinta de entender la tecnología y el dinero.</p>
+      <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" class="btn btn-primary">Escríbenos hoy →</a>
+      <div class="socials">
+        <a class="social" href="https://www.instagram.com/picharliinversiones/" target="_blank" aria-label="Instagram">IG</a>
+        <a class="social" href="https://www.tiktok.com/@picharliinversiones" target="_blank" aria-label="TikTok">TK</a>
+        <a class="social" href="https://www.facebook.com/profile.php?id=61594883574617" target="_blank" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" aria-label="Contactar por WhatsApp">☎</a>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo"><span class="logo-mark"><img src="https://i.imgur.com/hu1FC7U.png" alt="Picharli"></span><span>Picharli</span></a>
+        <p>Educación en inteligencia artificial, desarrollo web, bolsa de valores y trading, para quienes quieren construir criterio propio.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explora</h4>
+        <a href="#inicio">Inicio</a>
+        <a href="#areas">Áreas</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#ruta">Ruta de contenido</a>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <a href="https://www.instagram.com/picharliinversiones/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@picharliinversiones" target="_blank">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61594883574617" target="_blank">Facebook</a>
+        <a href="https://wa.me/593963614491" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Picharli. Todos los derechos reservados.</p>
+      <p class="disclaimer">La información presentada en este sitio tiene fines educativos e informativos y no constituye asesoría financiera, recomendación de inversión ni garantía de resultados.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+document.querySelectorAll(".nav-links a").forEach(l=>l.addEventListener("click",()=>navLinks.classList.remove("open")));
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("active")})},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
-agragado codigo de verificacion 
