@@ -4,164 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Picharli | IA, Desarrollo Web, Bolsa y Trading</title>
-<meta name="description" content="Picharli. Aprende inteligencia artificial, creación de páginas web, inversión en bolsa y trading con estrategia real.">
+<meta name="description" content="Aprende inteligencia artificial, desarrollo web, bolsa y trading con Picharli.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-:root{
-  --ink:#05070c;
-  --panel:#0d1420;
-  --line:rgba(226,232,240,.10);
-  --blue:#3b82f6;
-  --blue-deep:#1d4ed8;
-  --silver:#cbd5e1;
-  --text:#f1f5f9;
-  --muted:#8b96a8;
-}
-body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden}
+:root{--line:rgba(30,58,95,.13);--blue:#2563eb;--blue-deep:#1d4ed8;--silver:#475569;--text:#172033;--muted:#64748b}
+body{font-family:'Inter',sans-serif;background:#edf4ff;color:var(--text);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif}
 .container{width:min(1160px,92%);margin:auto}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(circle at 12% 8%,rgba(59,130,246,.12),transparent 32%),
-  radial-gradient(circle at 88% 30%,rgba(203,213,225,.05),transparent 30%),
-  linear-gradient(180deg,#05070c 0%,#080d16 55%,#05070c 100%);}
-.grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(rgba(148,163,184,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.05) 1px,transparent 1px);
-  background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 12% 8%,rgba(59,130,246,.14),transparent 34%),radial-gradient(ellipse at 88% 28%,rgba(125,180,255,.16),transparent 32%),linear-gradient(145deg,#f3f8ff 0%,#eaf2ff 52%,#f7faff 100%);background-size:140% 140%;animation:ambient-shift 24s ease-in-out infinite alternate}
+.grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.62;background-image:linear-gradient(rgba(71,85,105,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(71,85,105,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
 
-/* NAV */
-.navbar{position:fixed;top:0;left:0;width:100%;z-index:50;background:linear-gradient(90deg,#ffffff 0%,#94a3b8 38%,#1e293b 68%,#05070c 100%);border-bottom:1px solid rgba(203,213,225,.14);backdrop-filter:blur(16px);transition:transform .35s ease}
+/* Navegación */
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(247,250,255,.9);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(15,23,42,.05);backdrop-filter:blur(18px);transition:transform .35s ease}
 .navbar.hide{transform:translateY(-100%)}
-.nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between;overflow:visible}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:44px;height:44px;border-radius:0;background:none;display:flex;align-items:center;justify-content:center;box-shadow:none;overflow:visible}
-.logo-mark img{width:44px;height:44px;object-fit:contain;display:block}
-.logo span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.3px}
-.nav-inner .logo{margin-left:-22px}
-.nav-inner .logo-mark{width:104px;height:104px;overflow:visible}
-.nav-inner .logo-mark img{width:104px;height:104px}
+.nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center}
+.logo-mark img{width:104px;height:104px;object-fit:contain;display:block}
 .nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-size:14px;font-weight:500;color:var(--silver)}
-.nav-links a:hover{color:#fff}
-.nav-cta{padding:10px 18px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue-deep));font-weight:600;font-size:14px;color:#fff!important;box-shadow:0 8px 22px rgba(37,99,235,.28)}
-.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;font-size:20px;cursor:pointer}
+.nav-links a{font-size:14px;font-weight:500;color:#475569}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{padding:10px 18px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue-deep));font-weight:600;color:#fff!important;box-shadow:0 8px 22px rgba(37,99,235,.25)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text);font-size:20px;cursor:pointer}
 
-/* HERO */
+/* Portada */
 .hero{min-height:100vh;padding:145px 0 80px;display:flex;align-items:center}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.22);color:#bfdbfe;font-size:12px;font-weight:600;margin-bottom:22px}
-.badge b{width:6px;height:6px;border-radius:50%;background:var(--blue)}
-h1{font-size:clamp(38px,5vw,60px);line-height:1.05;letter-spacing:-1.5px;font-weight:700;margin-bottom:22px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(37,99,235,.07);border:1px solid rgba(59,130,246,.22);color:var(--blue-deep);font-size:12px;font-weight:600;margin-bottom:22px}
+.badge b{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:soft-pulse 2.2s infinite}
+h1{font-size:clamp(38px,5vw,60px);line-height:1.05;letter-spacing:-1.5px;margin-bottom:22px}
 h1 em{font-style:normal;color:var(--blue);display:block}
 .hero p.lead{color:var(--muted);font-size:17px;line-height:1.7;max-width:520px;margin-bottom:30px}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px}
 .btn{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;border-radius:12px;font-size:14px;font-weight:600}
-.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.28)}
-.btn-secondary{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text)}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.28);transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(37,99,235,.34)}
+.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--text)}
 
-/* HERO CARD */
-.card{background:linear-gradient(150deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:22px;box-shadow:0 26px 70px rgba(0,0,0,.45)}
+/* Tarjeta y gráficos */
+.card{background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(239,246,255,.9));border:1px solid var(--line);border-radius:22px;box-shadow:0 20px 52px rgba(15,23,42,.1)}
 .dash{padding:24px}
 .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-.dash-top small{color:var(--muted);font-size:11px;letter-spacing:.3px}
+.dash-top small{color:var(--muted);font-size:11px}
 .dash-top .val{font-size:26px;font-weight:700;margin-top:4px}
-.pill-live{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#93c5fd}
-.pill-live i{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.pill-live{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--blue-deep)}
+.pill-live i{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:soft-pulse 2.2s infinite}
 .bars{display:flex;align-items:flex-end;gap:6px;height:120px;margin-bottom:20px}
-.bars div{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--blue),rgba(59,130,246,.2))}
+.bars div{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--blue),rgba(59,130,246,.2));transform-origin:bottom;animation:bar-rise .9s both}
+.bars div:nth-child(2n){animation-delay:.08s}
+.bars div:nth-child(3n){animation-delay:.16s}
 .dash-tags{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.dash-tags div{padding:10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:11px}
-.dash-tags strong{display:block;font-size:12px;margin-top:3px;color:var(--text)}
+.dash-tags div{padding:10px;border-radius:10px;background:rgba(37,99,235,.035);border:1px solid var(--line);font-size:11px}
+.dash-tags strong{display:block;font-size:12px;margin-top:3px}
 .dash-tags small{color:var(--muted)}
-.float{position:absolute;padding:14px 16px;border-radius:14px;background:rgba(13,20,32,.92);border:1px solid var(--line);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.hero-visual{position:relative}
+.hero-visual .card{animation:card-arrive .85s both,soft-float 7s ease-in-out 1s infinite}
+.float{position:absolute;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.95);border:1px solid var(--line);box-shadow:0 12px 30px rgba(15,23,42,.12);animation:soft-float 6s ease-in-out infinite}
 .float small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}
 .float strong{font-size:14px}
-.hero-visual{position:relative}
 .f1{top:-16px;right:-14px}
-.f2{bottom:-14px;left:-18px}
+.f2{bottom:-14px;left:-18px;animation-delay:1.1s}
 
-/* TRUST */
-.trust{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.012)}
+/* Áreas destacadas */
+.trust{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.58)}
 .trust-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 .trust-row span{color:var(--muted);font-size:12px;font-weight:600}
-
-/* SECTIONS */
 .section{padding:100px 0}
 .head{max-width:640px;margin-bottom:52px}
-.eyebrow{color:#93c5fd;font-size:13px;font-weight:600;margin-bottom:12px;display:block}
+.eyebrow{color:var(--blue-deep);font-size:13px;font-weight:600;margin-bottom:12px;display:block}
 .head h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-1px;line-height:1.1;margin-bottom:14px}
 .head p{color:var(--muted);font-size:15px;line-height:1.7}
-
-/* AREAS */
 .areas{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.area{padding:26px;border-radius:18px;background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line)}
+.area{position:relative;display:block;height:100%;overflow:hidden;padding:26px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(239,246,255,.9));border:1px solid var(--line);box-shadow:0 12px 32px rgba(37,75,130,.075);transition:transform .32s,box-shadow .32s,border-color .32s}
+.area:hover,.area:focus-visible{transform:translateY(-6px);border-color:rgba(59,130,246,.32);box-shadow:0 22px 42px rgba(37,75,130,.14);outline:none}
+.area::after{content:"";position:absolute;inset:-1px;pointer-events:none;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.7) 48%,transparent 70%);transform:translateX(-130%);transition:transform .75s}
+.area:hover::after{transform:translateX(130%)}
 .area .ic{width:44px;height:44px;border-radius:12px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:20px}
 .area h3{font-size:17px;margin-bottom:8px}
 .area p{color:var(--muted);font-size:13px;line-height:1.6}
 
-/* STEPS */
+/* Pasos y ruta */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .step{padding:26px 0 0;border-top:1px solid var(--line)}
-.step small{color:#93c5fd;font-size:12px;font-weight:600;letter-spacing:.3px}
+.step small,.rm-item small{color:var(--blue-deep);font-size:12px;font-weight:600}
 .step h3{font-size:19px;margin:14px 0 8px}
-.step p{color:var(--muted);font-size:13.5px;line-height:1.6}
-
-/* SPLIT (about) */
+.step p,.rm-item p{color:var(--muted);font-size:13.5px;line-height:1.6}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .split-panel{padding:22px;border-radius:20px}
 .split-panel .bars{height:90px}
 .split ul{margin-top:14px;list-style:none}
 .split ul li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--silver);font-size:14px;display:flex;gap:10px}
 .split ul li i{width:5px;height:5px;border-radius:50%;background:var(--blue);margin-top:8px;flex-shrink:0}
-
-/* PROGRESS BANNER */
-.progress-box{padding:44px;border-radius:26px;background:radial-gradient(circle at 50% 0%,rgba(59,130,246,.18),transparent 55%),linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.progress-box,.cta-box{padding:44px;border-radius:26px;background:radial-gradient(circle at 50% 0%,rgba(59,130,246,.1),transparent 55%),linear-gradient(150deg,#fff,#f8fafc);border:1px solid var(--line);box-shadow:0 16px 42px rgba(15,23,42,.06)}
+.progress-box{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
 .progress-box h3{font-size:20px;margin-bottom:6px}
 .progress-box p{color:var(--muted);font-size:13.5px}
-.bar-track{height:8px;border-radius:99px;background:rgba(255,255,255,.06);margin:16px 0 10px;overflow:hidden}
+.bar-track{height:8px;border-radius:99px;background:rgba(30,58,95,.1);margin:16px 0 10px;overflow:hidden}
 .bar-fill{height:100%;width:35%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--silver))}
 .progress-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
-
-/* ROADMAP */
 .roadmap{border-left:1px solid var(--line);padding-left:26px;display:flex;flex-direction:column;gap:36px}
 .rm-item{position:relative}
 .rm-item::before{content:"";position:absolute;left:-31px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(59,130,246,.15)}
-.rm-item small{color:#93c5fd;font-size:12px;font-weight:600}
 .rm-item h3{font-size:18px;margin:8px 0 6px}
-.rm-item p{color:var(--muted);font-size:13.5px;line-height:1.6;max-width:560px}
+.rm-item p{max-width:560px}
 
-/* CTA */
-.cta-box{padding:70px 50px;border-radius:28px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(59,130,246,.2),transparent 55%),linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line)}
+/* Invitación y pie de página */
+.cta-box{text-align:center;padding:70px 50px}
 .cta-box h2{font-size:clamp(28px,4vw,42px);letter-spacing:-1px;margin-bottom:14px}
 .cta-box p{color:var(--muted);max-width:520px;margin:0 auto 26px;line-height:1.7}
 .socials{display:flex;justify-content:center;gap:12px;margin-top:26px}
-.social{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--silver)}
-.social:hover{border-color:rgba(59,130,246,.35);color:#fff}
-
-/* WHATSAPP */
+.social{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--silver)}
+.social:hover{border-color:rgba(59,130,246,.35);color:var(--blue-deep)}
 .whatsapp{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;z-index:80;box-shadow:0 12px 30px rgba(37,211,102,.3)}
-
-/* FOOTER */
 footer{padding:50px 0 26px;border-top:1px solid var(--line)}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px}
 .footer-brand p{color:var(--muted);font-size:13px;line-height:1.8;margin-top:14px;max-width:320px}
-.footer-col h4{font-size:13px;margin-bottom:16px;color:var(--text)}
+.footer-col h4{font-size:13px;margin-bottom:16px}
 .footer-col a{display:block;color:var(--muted);font-size:13px;margin-bottom:10px}
-.footer-col a:hover{color:#93c5fd}
+.footer-col a:hover{color:var(--blue-deep)}
 .footer-bottom{padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.footer-bottom p{color:#475569;font-size:11px}
-.disclaimer{max-width:560px;color:#475569!important;line-height:1.6}
+.footer-bottom p{color:#64748b;font-size:11px}
+.disclaimer{max-width:560px;line-height:1.6}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+/* Contenido de cada área dentro del mismo archivo */
+.detail-pages{display:none;min-height:75vh;padding:145px 0 80px}
+.detail-view{display:none}
+.detail-view:target{display:block}
+body.detail-open>section,body.detail-open>footer,body.detail-open>.whatsapp{display:none}
+body.detail-open .detail-pages{display:block}
+.detail-view h1{font-size:clamp(38px,5vw,58px)}
+.detail-intro{color:var(--muted);font-size:16px;line-height:1.8;max-width:760px;margin:0 0 28px}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+.detail-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(239,246,255,.9));box-shadow:0 12px 32px rgba(37,75,130,.075);transition:transform .3s,box-shadow .3s}
+.detail-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(37,75,130,.12)}
+.detail-card h2{font-size:19px;margin-bottom:10px}
+.detail-card p,.detail-card li{color:var(--muted);font-size:14px;line-height:1.75}
+.detail-card ul{padding-left:20px}
+.detail-note{margin-top:20px;padding:20px;border-radius:16px;background:rgba(37,99,235,.055);border:1px solid rgba(59,130,246,.2);color:#334155;font-size:14px;line-height:1.75}
+.candle-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.candle-demo{text-align:center;padding:18px 10px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.72)}
+.wick-demo{height:48px;width:2px;background:#94a3b8;margin:0 auto;position:relative}
+.candle-body{position:absolute;left:-8px;top:12px;width:18px;height:24px;border-radius:2px;background:#22c55e}
+.candle-body.red{background:#ef4444}
+.candle-body.doji{height:3px;top:22px;background:#64748b}
+.candle-demo strong{display:block;font-size:13px;margin-top:10px}
+.candle-demo small{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:4px}
+
+/* Animaciones */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s,transform .75s}
 .reveal.active{opacity:1;transform:translateY(0)}
+@keyframes ambient-shift{from{background-position:0% 20%}to{background-position:100% 80%}}
+@keyframes card-arrive{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes soft-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes bar-rise{from{scale:1 .2;opacity:.35}to{scale:1 1;opacity:1}}
+@keyframes soft-pulse{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.18)}50%{box-shadow:0 0 0 6px rgba(59,130,246,0)}}
 
 @media(max-width:900px){
-  .nav-links{position:absolute;top:80px;left:4%;width:92%;padding:18px;display:none;flex-direction:column;gap:8px;background:rgba(5,7,12,.97);border:1px solid var(--line);border-radius:16px}
+  .nav-links{position:absolute;top:80px;left:4%;width:92%;padding:18px;display:none;flex-direction:column;gap:8px;background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 36px rgba(15,23,42,.12)}
   .nav-links.open{display:flex}
   .nav-links a{padding:12px}
   .menu-btn{display:block}
@@ -174,20 +178,29 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-brand{grid-column:1/-1}
 }
+@media(max-width:700px){
+  .detail-grid{grid-template-columns:1fr}
+  .candle-row{grid-template-columns:repeat(2,1fr)}
+  .detail-pages{padding-top:125px}
+}
 @media(max-width:600px){
-  .areas{grid-template-columns:1fr}
+  .areas,.footer-grid{grid-template-columns:1fr}
   .cta-box{padding:46px 22px}
-  .footer-grid{grid-template-columns:1fr}
+  .footer-brand{grid-column:auto}
   h1{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
+
 <body>
 <div class="grid-bg"></div>
 
 <header class="navbar">
   <div class="container nav-inner">
-    <a href="#inicio" class="logo">
+    <a href="#inicio" class="logo" aria-label="Picharli, inicio">
       <span class="logo-mark"><img src="https://i.imgur.com/hu1FC7U.png" alt="Picharli"></span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -195,7 +208,7 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
       <a href="#areas">Áreas</a>
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#ruta">Ruta de contenido</a>
-      <a class="nav-cta" href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank">Hablar por WhatsApp</a>
+      <a class="nav-cta" href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
   </div>
@@ -209,7 +222,7 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
       <p class="lead">Contenido claro sobre inteligencia artificial, creación de páginas web e inversión en bolsa. Sin promesas vacías: solo criterio propio y decisiones informadas.</p>
       <div class="btn-row">
         <a href="#areas" class="btn btn-primary">Ver el contenido →</a>
-        <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" class="btn btn-secondary">Hablar con nosotros</a>
+        <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Hablar con nosotros</a>
       </div>
     </div>
     <div class="hero-visual reveal">
@@ -253,26 +266,26 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
       <p>Cada tema se enseña con ejemplos reales, para que entiendas el porqué antes de aplicar cualquier técnica.</p>
     </div>
     <div class="areas">
-      <div class="area reveal">
+      <a class="area reveal" href="#ia" aria-label="Conocer más sobre Inteligencia Artificial">
         <div class="ic">◈</div>
         <h3>Inteligencia Artificial</h3>
         <p>Usa la IA como herramienta de trabajo diario: automatizar tareas, analizar información y tomar mejores decisiones.</p>
-      </div>
-      <div class="area reveal">
+      </a>
+      <a class="area reveal" href="#desarrollo-web" aria-label="Conocer más sobre Desarrollo Web">
         <div class="ic">◇</div>
         <h3>Desarrollo Web</h3>
         <p>Crea páginas y proyectos digitales propios, entendiendo la estructura detrás de cada sitio que visitas.</p>
-      </div>
-      <div class="area reveal">
+      </a>
+      <a class="area reveal" href="#bolsa" aria-label="Conocer más sobre Bolsa y Acciones">
         <div class="ic">◆</div>
         <h3>Bolsa y Acciones</h3>
         <p>Aprende a comprar acciones en Estados Unidos: qué mirar en una empresa antes de invertir tu dinero.</p>
-      </div>
-      <div class="area reveal">
+      </a>
+      <a class="area reveal" href="#trading" aria-label="Conocer más sobre Trading">
         <div class="ic">↗</div>
         <h3>Trading</h3>
         <p>Entiende el análisis técnico y la gestión de riesgo antes de operar en cualquier mercado.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -284,21 +297,9 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
       <h2>Tres pasos para empezar.</h2>
     </div>
     <div class="steps">
-      <div class="step reveal">
-        <small>PASO 1</small>
-        <h3>Aprende los fundamentos</h3>
-        <p>Contenido explicado en lenguaje simple, sin tecnicismos innecesarios ni relleno.</p>
-      </div>
-      <div class="step reveal">
-        <small>PASO 2</small>
-        <h3>Analiza con datos</h3>
-        <p>Practica con casos reales de mercado, código y herramientas de IA.</p>
-      </div>
-      <div class="step reveal">
-        <small>PASO 3</small>
-        <h3>Aplica con criterio</h3>
-        <p>Toma tus propias decisiones, con base y sin depender de la suerte.</p>
-      </div>
+      <div class="step reveal"><small>PASO 1</small><h3>Aprende los fundamentos</h3><p>Contenido explicado en lenguaje simple, sin tecnicismos innecesarios ni relleno.</p></div>
+      <div class="step reveal"><small>PASO 2</small><h3>Analiza con datos</h3><p>Practica con casos reales de mercado, código y herramientas de IA.</p></div>
+      <div class="step reveal"><small>PASO 3</small><h3>Aplica con criterio</h3><p>Toma tus propias decisiones, con base y sin depender de la suerte.</p></div>
     </div>
   </div>
 </section>
@@ -331,7 +332,7 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
         <div class="progress-labels"><span>Fase actual</span><span>Fundamentos de IA y Bolsa</span></div>
       </div>
       <div style="text-align:right">
-        <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" class="btn btn-primary">Escríbenos y entérate primero →</a>
+        <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Escríbenos y entérate primero →</a>
       </div>
     </div>
   </div>
@@ -344,26 +345,10 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
       <h2>Así vamos a ir sumando contenido.</h2>
     </div>
     <div class="roadmap">
-      <div class="rm-item reveal">
-        <small>FASE 1</small>
-        <h3>Fundamentos de Inteligencia Artificial</h3>
-        <p>Herramientas de IA aplicadas al trabajo diario y a la toma de decisiones.</p>
-      </div>
-      <div class="rm-item reveal">
-        <small>FASE 2</small>
-        <h3>Desarrollo web desde cero</h3>
-        <p>Estructura, diseño y publicación de páginas propias.</p>
-      </div>
-      <div class="rm-item reveal">
-        <small>FASE 3</small>
-        <h3>Bolsa de valores y acciones en EE.UU.</h3>
-        <p>Cómo abrir una cuenta, analizar una empresa y comprar tus primeras acciones.</p>
-      </div>
-      <div class="rm-item reveal">
-        <small>FASE 4</small>
-        <h3>Trading y análisis técnico</h3>
-        <p>Lectura de gráficos, gestión de riesgo y disciplina operativa.</p>
-      </div>
+      <div class="rm-item reveal"><small>FASE 1</small><h3>Fundamentos de Inteligencia Artificial</h3><p>Herramientas de IA aplicadas al trabajo diario y a la toma de decisiones.</p></div>
+      <div class="rm-item reveal"><small>FASE 2</small><h3>Desarrollo web desde cero</h3><p>Estructura, diseño y publicación de páginas propias.</p></div>
+      <div class="rm-item reveal"><small>FASE 3</small><h3>Bolsa de valores y acciones en EE.UU.</h3><p>Cómo abrir una cuenta, analizar una empresa y comprar tus primeras acciones.</p></div>
+      <div class="rm-item reveal"><small>FASE 4</small><h3>Trading y análisis técnico</h3><p>Lectura de gráficos, gestión de riesgo y disciplina operativa.</p></div>
     </div>
   </div>
 </section>
@@ -373,23 +358,93 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
     <div class="cta-box reveal">
       <h2>Empieza a construir tu propio criterio.</h2>
       <p>Síguenos y aprende con nosotros una forma distinta de entender la tecnología y el dinero.</p>
-      <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" class="btn btn-primary">Escríbenos hoy →</a>
+      <a href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Escríbenos hoy →</a>
       <div class="socials">
-        <a class="social" href="https://www.instagram.com/picharliinversiones/" target="_blank" aria-label="Instagram">IG</a>
-        <a class="social" href="https://www.tiktok.com/@picharliinversiones" target="_blank" aria-label="TikTok">TK</a>
-        <a class="social" href="https://www.facebook.com/profile.php?id=61594883574617" target="_blank" aria-label="Facebook">FB</a>
+        <a class="social" href="https://www.instagram.com/picharliinversiones/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social" href="https://www.tiktok.com/@picharliinversiones" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TK</a>
+        <a class="social" href="https://www.facebook.com/profile.php?id=61594883574617" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
       </div>
     </div>
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" aria-label="Contactar por WhatsApp">☎</a>
+<!-- Páginas internas: todo está incluido en este mismo archivo -->
+<main class="detail-pages">
+  <div class="container">
+    <section class="detail-view" id="ia">
+      <span class="badge"><b></b>IA · PICHARLI</span>
+      <h1>Inteligencia Artificial</h1>
+      <p class="detail-intro">Entiende cómo la inteligencia artificial puede ayudarte a trabajar, crear y analizar información.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="#inicio">← Volver al inicio</a><a class="btn btn-secondary" href="#areas">Ver las áreas</a></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h2>¿Qué es la inteligencia artificial?</h2><p>Es un conjunto de tecnologías que permite a los sistemas reconocer patrones, generar contenido y resolver tareas que suelen requerir capacidades humanas. Sus resultados dependen de los datos, el contexto y las instrucciones que recibe.</p></article>
+        <article class="detail-card"><h2>Usos cotidianos</h2><p>Puedes emplearla para resumir textos, organizar ideas, explorar datos, redactar borradores y automatizar tareas repetitivas. Revisa siempre los resultados antes de utilizarlos.</p></article>
+        <article class="detail-card"><h2>Aprende con criterio</h2><p>Define el objetivo, aporta contexto, comprueba la información y protege los datos personales o confidenciales. La IA apoya el trabajo, pero la revisión y las decisiones siguen siendo responsabilidad de las personas.</p></article>
+      </div>
+    </section>
+
+    <section class="detail-view" id="desarrollo-web">
+      <span class="badge"><b></b>WEB · PICHARLI</span>
+      <h1>Desarrollo Web</h1>
+      <p class="detail-intro">Aprende cómo se construyen, diseñan y publican sitios y aplicaciones para Internet.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="#inicio">← Volver al inicio</a><a class="btn btn-secondary" href="#areas">Ver las áreas</a></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h2>¿Qué es el desarrollo web?</h2><p>Es el proceso de crear sitios y aplicaciones que funcionan en un navegador. Incluye la estructura del contenido, su apariencia y, cuando hace falta, funciones que responden a las acciones del usuario.</p></article>
+        <article class="detail-card"><h2>Las piezas principales</h2><p>HTML organiza el contenido, CSS define su presentación y JavaScript agrega interacción. Un sitio también necesita adaptarse a móviles, cargar correctamente y ofrecer navegación clara.</p></article>
+        <article class="detail-card"><h2>De la idea al sitio</h2><p>Una ruta inicial consiste en planificar el contenido, construir una página sencilla, probarla en distintos tamaños de pantalla y publicarla en un servicio de alojamiento.</p></article>
+      </div>
+    </section>
+
+    <section class="detail-view" id="bolsa">
+      <span class="badge"><b></b>BOLSA · PICHARLI</span>
+      <h1>Bolsa y Acciones</h1>
+      <p class="detail-intro">Una introducción para comprender qué representa una acción y qué factores considerar al estudiar una empresa.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="#inicio">← Volver al inicio</a><a class="btn btn-secondary" href="#areas">Ver las áreas</a></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h2>¿Qué es una acción?</h2><p>Una acción representa una participación en una empresa. Su precio puede cambiar por los resultados del negocio, las expectativas, las condiciones económicas y la oferta y demanda del mercado.</p></article>
+        <article class="detail-card"><h2>Investigar antes de decidir</h2><p>Como ejercicio educativo, revisa qué vende la empresa, cómo genera ingresos, su evolución financiera, su deuda, sus riesgos y el contexto de su sector. Compara fuentes y distingue hechos de expectativas.</p></article>
+        <article class="detail-card"><h2>Riesgo y horizonte</h2><p>El valor de una inversión puede subir o bajar y existe la posibilidad de perder parte o todo el capital invertido. Diversificación, horizonte de tiempo y tolerancia al riesgo son conceptos importantes para estudiar.</p></article>
+      </div>
+      <p class="detail-note">Este contenido es educativo e informativo; no constituye asesoría financiera ni recomendación de inversión.</p>
+    </section>
+
+    <section class="detail-view" id="trading">
+      <span class="badge"><b></b>TRADING · PICHARLI</span>
+      <h1>Introducción al Trading</h1>
+      <p class="detail-intro">Aprende los fundamentos del análisis técnico empezando por la lectura educativa de las velas japonesas.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="#inicio">← Volver al inicio</a><a class="btn btn-secondary" href="#areas">Ver las áreas</a></div>
+
+      <div class="detail-grid">
+        <article class="detail-card"><h2>¿Qué muestra una vela?</h2><p>Una vela resume el movimiento del precio durante un intervalo. El cuerpo conecta apertura y cierre; las mechas muestran el máximo y el mínimo alcanzados.</p></article>
+        <article class="detail-card"><h2>Colores, apertura y cierre</h2><p>En esta guía, verde representa un cierre por encima de la apertura (alcista) y rojo, un cierre por debajo (bajista). En una vela alcista el cierre está arriba del cuerpo; en una bajista, abajo. Los colores pueden variar según la plataforma.</p></article>
+        <article class="detail-card"><h2>Cuerpo y mechas</h2><p>El cuerpo representa la distancia entre apertura y cierre. La mecha superior llega al máximo y la inferior al mínimo del intervalo. Su lectura depende del marco temporal y el contexto.</p></article>
+        <article class="detail-card"><h2>Formas de velas</h2><p><strong>Doji:</strong> apertura y cierre muy próximos. <strong>Martillo</strong> y <strong>martillo invertido:</strong> cuerpo pequeño y mecha larga, estudiados a menudo después de una caída. <strong>Estrella fugaz:</strong> mecha superior larga, observada a menudo después de una subida.</p></article>
+      </div>
+
+      <div class="candle-row" aria-label="Esquema de velas japonesas">
+        <div class="candle-demo"><div class="wick-demo"><span class="candle-body"></span></div><strong>Alcista</strong><small>Cierre sobre apertura</small></div>
+        <div class="candle-demo"><div class="wick-demo"><span class="candle-body red"></span></div><strong>Bajista</strong><small>Cierre bajo apertura</small></div>
+        <div class="candle-demo"><div class="wick-demo"><span class="candle-body doji"></span></div><strong>Doji</strong><small>Apertura y cierre cercanos</small></div>
+        <div class="candle-demo"><div class="wick-demo"><span class="candle-body"></span></div><strong>Mechas</strong><small>Máximo y mínimo del periodo</small></div>
+      </div>
+
+      <div class="detail-grid">
+        <article class="detail-card"><h2>Patrones de velas</h2><ul><li><strong>Envolvente:</strong> el cuerpo de una vela cubre el cuerpo previo.</li><li><strong>Marubozu:</strong> cuerpo amplio con mechas muy pequeñas o ausentes.</li><li><strong>Harami:</strong> cuerpo pequeño contenido dentro del cuerpo anterior.</li></ul><p>Estas figuras no predicen el futuro ni garantizan movimientos.</p></article>
+        <article class="detail-card"><h2>Ruta para leer un gráfico</h2><p><strong>Velas → tendencia → soportes y resistencias → volumen → contexto → gestión del riesgo.</strong> La tendencia muestra la dirección general; soportes y resistencias son zonas donde el precio ha encontrado interés comprador o vendedor.</p></article>
+        <article class="detail-card"><h2>Gestión del riesgo</h2><p>Estudia cuánto podrías perder, cómo limitar la exposición y por qué evitar arriesgar dinero que no puedes permitirte perder. Practica primero con ejemplos o simuladores y registra tus decisiones.</p></article>
+      </div>
+      <p class="detail-note"><strong>Aviso:</strong> esta información es educativa e informativa. No constituye asesoría financiera, recomendación de compra o venta ni garantía de resultados.</p>
+    </section>
+  </div>
+</main>
+
+<a class="whatsapp" href="https://wa.me/593963614491?text=Hola%20Picharli%2C%20quiero%20conocer%20más." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">☎</a>
 
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="logo"><span class="logo-mark"><img src="https://i.imgur.com/hu1FC7U.png" alt="Picharli"></span><span>Picharli</span></a>
+        <a class="logo" href="#inicio"><span class="logo-mark"><img src="https://i.imgur.com/hu1FC7U.png" alt="Picharli"></span><span>Picharli</span></a>
         <p>Educación en inteligencia artificial, desarrollo web, bolsa de valores y trading, para quienes quieren construir criterio propio.</p>
       </div>
       <div class="footer-col">
@@ -401,10 +456,10 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
       </div>
       <div class="footer-col">
         <h4>Conecta</h4>
-        <a href="https://www.instagram.com/picharliinversiones/" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@picharliinversiones" target="_blank">TikTok</a>
-        <a href="https://www.facebook.com/profile.php?id=61594883574617" target="_blank">Facebook</a>
-        <a href="https://wa.me/593963614491" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/picharliinversiones/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@picharliinversiones" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61594883574617" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://wa.me/593963614491" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -415,19 +470,40 @@ footer{padding:50px 0 26px;border-top:1px solid var(--line)}
 </footer>
 
 <script>
+function updateSinglePage(){
+  const pageIds=["ia","desarrollo-web","bolsa","trading"];
+  const currentPage=location.hash.slice(1);
+  const isDetail=pageIds.includes(currentPage);
+
+  document.body.classList.toggle("detail-open",isDetail);
+
+  if(isDetail){
+    document.title=document.getElementById(currentPage).querySelector("h1").textContent+" | Picharli";
+  }else{
+    document.title="Picharli | IA, Desarrollo Web, Bolsa y Trading";
+  }
+}
+window.addEventListener("hashchange",updateSinglePage);
+updateSinglePage();
+
 const menuBtn=document.getElementById("menuBtn");
 const navLinks=document.getElementById("navLinks");
 menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
-document.querySelectorAll(".nav-links a").forEach(l=>l.addEventListener("click",()=>navLinks.classList.remove("open")));
-const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("active")})},{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+document.querySelectorAll(".nav-links a").forEach(link=>link.addEventListener("click",()=>navLinks.classList.remove("open")));
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting)entry.target.classList.add("active");
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(element=>observer.observe(element));
 
 const navbar=document.querySelector(".navbar");
 let lastY=window.scrollY;
 window.addEventListener("scroll",()=>{
   const y=window.scrollY;
-  if(y>lastY && y>120){navbar.classList.add("hide")}
-  else{navbar.classList.remove("hide")}
+  if(y>lastY&&y>120)navbar.classList.add("hide");
+  else navbar.classList.remove("hide");
   lastY=y;
 });
 </script>
